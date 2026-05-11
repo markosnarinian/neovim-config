@@ -24,7 +24,7 @@ return {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
       }
-    }
+    },
   },
   keys = {
     -- Top Pickers & Explorer
