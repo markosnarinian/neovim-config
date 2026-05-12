@@ -1,12 +1,9 @@
 ---@type LazySpec
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter").setup({
-			ensure_installed = { "python" },
-			highlight = { enable = true },
-			indent = { enable = true },
-		})
-	end,
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  build = ':TSUpdate',
+  ensure_installed = { "python" },
+  highlight = { enable = true },
+  indent = { enable = true },
 }
