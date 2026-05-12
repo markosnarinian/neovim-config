@@ -34,5 +34,12 @@ return {
             "<cmd>Trouble qflist toggle<cr>",
             desc = "Quickfix List (Trouble)",
         },
+        {
+          "<leader>xW",
+            function()
+              require("trouble").open({ mode = "diagnostics" })
+            end,
+            desc = "Workspace diagnostics (Trouble)",
+          },
     },
 }

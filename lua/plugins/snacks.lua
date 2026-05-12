@@ -8,8 +8,8 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     explorer = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
+    indent = { enabled = true, scope = { enabled = false } },
+    input = { enabled = false },
     notifier = {
       enabled = true,
       timeout = 3000,
