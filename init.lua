@@ -16,7 +16,16 @@ vim.diagnostic.config({
     },
 })
 
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics (floating)" })
+vim.g.python_indent = {
+  open_paren = 'shiftwidth() * 2',
+  nested_paren = 'shiftwidth()',
+  continue = 'shiftwidth() * 2',
+  closed_paren_align_last_line = false
+  searchpair_timeout = 500,
+  disable_parentheses_indenting = 1,
+}
+
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostics (floating)" })
 
 vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
 
@@ -32,4 +41,4 @@ vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, 
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-vim.cmd("colorscheme jb")
+vim.cmd("colorscheme koda")
