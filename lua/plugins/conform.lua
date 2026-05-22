@@ -5,7 +5,7 @@ return {
     event = "BufWritePre",
     opts = {
       formatters_by_ft = {
-        python = { "black" },
+        python = { "isort", "black" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
