@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  'stevearc/oil.nvim',
+  "stevearc/oil.nvim",
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {},

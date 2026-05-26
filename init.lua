@@ -29,6 +29,8 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagn
 
 vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
 
+vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
+
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle Aerial" })
 
 vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>", { desc = "Write [:w]" })
@@ -48,20 +50,6 @@ vim.keymap.set("n", "<leader>qd", function()
 end, { desc = "Stop Persistence => session won't be saved on exit" })
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
--- vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
---   callback = function()
---     vim.opt.relativenumber = false
---     vim.cmd("redraw")
---   end,
--- })
---
--- vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave" }, {
---   callback = function()
---     vim.opt.relativenumber = true
---     vim.cmd("redraw")
---   end,
--- })
 
 vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
