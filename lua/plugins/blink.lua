@@ -1,15 +1,15 @@
 ---@type LazySpec
 return {
-  'saghen/blink.cmp',
+  "saghen/blink.cmp",
   dependencies = {
-    'saghen/blink.lib',
+    "saghen/blink.lib",
     -- optional: provides snippets for the snippet source
-    'rafamadriz/friendly-snippets',
+    "rafamadriz/friendly-snippets",
   },
   build = function()
     -- build the fuzzy matcher, wait up to 60 seconds
     -- you can use `gb` in `:Lazy` to rebuild the plugin as needed
-    require('blink.cmp').build():wait(60000)
+    require("blink.cmp").build():wait(60000)
   end,
 
   ---@module 'blink.cmp'
@@ -27,28 +27,29 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = {
-      preset = 'enter',
-      ['<Tab>']   = { 'select_next', 'snippet_forward', 'fallback' },
-      ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
-      ['<C-k>'] = { 'show_signature', 'hide_signature' },
-    },
+    keymap = { preset = "super-tab" },
+    -- keymap = {
+    --   preset = 'enter',
+    --   ['<Tab>']   = { 'select_next', 'snippet_forward', 'fallback' },
+    --   ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+    --   ['<C-k>'] = { 'show_signature', 'hide_signature' },
+    -- },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
       documentation = { auto_show = false },
       list = {
-        selection = { preselect = false }
-      }
+        selection = { preselect = true },
+      },
     },
 
     -- (Default) list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
-    sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
     -- You may use a lua implementation instead by using `implementation = "lua"`
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "rust" }
+    fuzzy = { implementation = "rust" },
   },
 }

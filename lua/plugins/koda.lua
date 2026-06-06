@@ -5,7 +5,7 @@ return {
   priority = 1000,
   config = function()
     require("koda").setup({
-      theme = { dark = "dark", light = "glade" },
+      theme = { dark = "moss", light = "glade" },
     })
     vim.cmd("colorscheme koda")
   end,

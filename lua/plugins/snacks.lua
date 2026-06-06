@@ -14,10 +14,35 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      hidden = true,
+      sources = {
+        -- file navigation
+        files = { hidden = true },
+        smart = { hidden = true },
+        git_files = { hidden = true },
+        recent = { hidden = true }, -- recently opened files
+
+        -- search
+        grep = { hidden = true }, -- live grep / search in files
+        grep_word = { hidden = true }, -- grep word under cursor
+
+        -- explorers
+        explorer = { hidden = true }, -- if you ever enable it
+      },
+      exclude = {
+        ".git",
+        "node_modules",
+        ".venv",
+        "venv",
+        "__pycache__",
+      },
+    },
+
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = true },
+    scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = true },
     styles = {
@@ -30,7 +55,7 @@ return {
   keys = {
     -- Top Pickers & Explorer
     {
-      "<leader><space>",
+      "<leader>fs",
       function()
         Snacks.picker.smart()
       end,
@@ -581,9 +606,8 @@ return {
         -- Create some toggle mappings
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>l")
         Snacks.toggle.diagnostics():map("<leader>ud")
-        Snacks.toggle.line_number():map("<leader>ul")
         Snacks.toggle
           .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
           :map("<leader>uc")
