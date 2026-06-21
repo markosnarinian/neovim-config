@@ -1,8 +1,12 @@
 require("config.lazy")
 
+vim.cmd.colorscheme("solarized")
+
 vim.g.mapleader = " "
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+
+vim.opt.scrolloff = 3
 
 vim.diagnostic.config({
   virtual_text = true, -- inline text

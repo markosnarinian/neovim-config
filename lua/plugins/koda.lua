@@ -7,6 +7,5 @@ return {
     require("koda").setup({
       theme = { dark = "moss", light = "glade" },
     })
-    vim.cmd("colorscheme koda")
   end,
 }
