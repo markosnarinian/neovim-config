@@ -35,8 +35,8 @@ vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
 
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle Aerial" })
 
-vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>", { desc = "Write [:w]" })
-vim.keymap.set("n", "<leader>W", "<cmd>:wa<CR>", { desc = "Write all [:wa]" })
+-- vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>", { desc = "Write [:w]" })
+-- vim.keymap.set("n", "<leader>W", "<cmd>:wa<CR>", { desc = "Write all [:wa]" })
 
 vim.keymap.set("n", "<leader>qs", function()
   require("persistence").load()
@@ -65,16 +65,3 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
 vim.keymap.set("n", "<leader>cf", "<cmd>Format<cr>", { desc = "Format" })
-
--- resizing splits
--- these keymaps will also accept a range,
--- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
-vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
-vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
-vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
--- swapping buffers between windows
-vim.keymap.set("n", "<leader><leader>h", require("smart-splits").swap_buf_left)
-vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
-vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
-vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)

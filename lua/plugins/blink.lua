@@ -27,14 +27,14 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    -- keymap = { preset = "super-tab" },
-    keymap = {
-      preset = "enter",
-      ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-      ["<C-k>"] = { "show_signature", "hide_signature" },
-      ["<CR>"] = {},
-    },
+    keymap = { preset = "super-tab" },
+    -- keymap = {
+    --   preset = "enter",
+    --   ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+    --   ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+    --   ["<C-k>"] = { "show_signature", "hide_signature" },
+    --   ["<CR>"] = {},
+    -- },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
