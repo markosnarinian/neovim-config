@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
-  dir = "/Users/markos/Projects/ln.nvim",
-  name = "ln.nvim",
+  "markosnarinian/ln.nvim",
   opts = {
     absolute_events = { "WinLeave", "TermEnter", "CmdlineEnter" },
     relative_events = { "WinEnter", "TermLeave", "CmdlineLeave" },
