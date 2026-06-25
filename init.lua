@@ -60,15 +60,3 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-  callback = function()
-    vim.lsp.buf.code_action({
-      apply = true,
-      context = {
-        only = { "source.organizeImports" },
-        diagnostics = {},
-      },
-    })
-  end,
-})
