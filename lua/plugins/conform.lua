@@ -15,6 +15,7 @@ return {
         css = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
+        go = { "goimports" },
       },
       format_on_save = {
         timeout_ms = 500,

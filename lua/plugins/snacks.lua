@@ -38,6 +38,13 @@ return {
         "venv",
         "__pycache__",
       },
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+          },
+        },
+      },
     },
 
     quickfile = { enabled = true },

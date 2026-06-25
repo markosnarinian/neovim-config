@@ -28,16 +28,12 @@ vim.g.python_indent = {
 }
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostics (floating)" })
-
 vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
-
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
-
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle Aerial" })
-
--- vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>", { desc = "Write [:w]" })
--- vim.keymap.set("n", "<leader>W", "<cmd>:wa<CR>", { desc = "Write all [:wa]" })
-
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>", { desc = "Write [:w]" })
+vim.keymap.set("n", "<leader>W", "<cmd>:wa<CR>", { desc = "Write all [:wa]" })
 vim.keymap.set("n", "<leader>qs", function()
   require("persistence").load()
 end, { desc = "Load the session for the current directory" })
@@ -50,8 +46,8 @@ end, { desc = "Load the last session" })
 vim.keymap.set("n", "<leader>qd", function()
   require("persistence").stop()
 end, { desc = "Stop Persistence => session won't be saved on exit" })
-
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>cf", "<cmd>Format<cr>", { desc = "Format" })
 
 vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
@@ -64,4 +60,15 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
-vim.keymap.set("n", "<leader>cf", "<cmd>Format<cr>", { desc = "Format" })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+  callback = function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = {
+        only = { "source.organizeImports" },
+        diagnostics = {},
+      },
+    })
+  end,
+})
