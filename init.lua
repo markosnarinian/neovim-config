@@ -60,3 +60,12 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
+
+-- Go support
+vim.api.nvim_set_hl(0, "@lsp.mod.shadowing", { bold = true, underline = true })
+
+vim.filetype.add({
+  filename = {
+    Conductor = "hcl",
+  },
+})

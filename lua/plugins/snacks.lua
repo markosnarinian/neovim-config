@@ -17,6 +17,9 @@ return {
     picker = {
       enabled = true,
       hidden = true,
+      layout = {
+        layout = { backdrop = false },
+      },
       sources = {
         -- file navigation
         files = { hidden = true },

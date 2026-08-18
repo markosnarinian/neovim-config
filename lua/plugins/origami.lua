@@ -6,7 +6,7 @@ return {
     setupFoldKeymaps = false,
     autoFold = {
       enabled = true,
-      kinds = { "comment" },
+      kinds = {},
     },
   }, -- required even when using default config
 
